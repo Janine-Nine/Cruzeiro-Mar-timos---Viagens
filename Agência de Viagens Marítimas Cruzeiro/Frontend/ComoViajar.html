@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como Deseja Viajar?</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="img/Navio/navio cruzeiro1.jpeg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top rounded-circle"> Cruzeiros & Turismo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinos.html">Destinos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="ComoViajar.html">Como Viajar</a></li>
+          <li class="nav-item"><a class="nav-link" href="pacotes.html">Pacotes</a></li>
+          <li class="nav-item"><a class="nav-link" href="hospedagem.html">Hospedagem</a></li>
+          <li class="nav-item"><a class="nav-link" href="pagamento.html">Pagamento</a></li>
+          <li class="nav-item"><a class="nav-link" href="contatos.html">Contatos</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<section class="py-5 escolha-section">
+<div class="container text-center">
+  
+  <h1 class="mb-4">Como você prefere viajar?</h1>
+  <p class="lead mb-5">Escolha sua experiência ideal.</p>
+
+  <form id="form-escolha" action="../Backend/public/processar_escolha.php" method="post">
+    <input type="hidden" name="tipo_viagem" id="tipo_viagem" value="">
+    <div class="row g-4 justify-content-center">
+
+    <!-- AVIÃO -->
+    <div class="col-md-5">
+      <div class="card escolha-card" onclick="selecionar('aviao')">
+        <img src="img/Avião/avião marítimo1.jpeg" class="card-img-top">
+        <div class="card-body">
+          <h3>✈️ Avião</h3>
+          <p>Rápido, prático e direto ao destino.</p>
+          <button class="btn btn-outline-primary">Escolher Avião</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRUZEIRO -->
+    <div class="col-md-5">
+      <div class="card escolha-card" onclick="selecionar('cruzeiro')">
+        <img src="img/Navio/navio cruzeiro3.jpeg" class="card-img-top">
+        <div class="card-body">
+          <h3>🚢 Cruzeiro</h3>
+          <p>Luxo, lazer e destino em alto-mar.</p>
+          <button class="btn btn-outline-primary">Escolher Cruzeiro</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+    </div>
+  </form>
+  <div id="resultado" class="mt-5 fw-bold"></div>
+
+</div>
+</section>
+
+ <footer class="footer">
+    <p><strong>&copy;2025 Cruzeiros & Turismo - Todos os direitos reservados</strong></p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+
