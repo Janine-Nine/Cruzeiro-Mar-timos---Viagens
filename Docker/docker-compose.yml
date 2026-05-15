@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: Docker/Dockerfile.yml
+    container_name: cruzeiros_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ..:/var/www/html
+      - ./Frontend:/var/www/html/Frontend
+      - ./Backend:/var/www/html/Backend
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: cruzeiros_turismo
+      DB_USER: root
+      DB_PASS: root
+
+  db:
+    image: mysql:8.0
+    container_name: cruzeiros_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: cruzeiros_turismo
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+      - ../Backend/sql/banco.sql:/docker-entrypoint-initdb.d/01-init.sql
